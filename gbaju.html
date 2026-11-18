@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            font-family: Arial, sans-serif;
+        }
+
+        div {
+            width: 350px;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.10);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h2 {
+            color: white;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 20px;
+            border: 1px solid #aaa;
+            border-radius: 8px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 15px;
+        }
+
+        input:focus {
+            border: 2px solid #00c6ff;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #0072ff, #00c6ff);
+            transform: translateY(-2px);
+        }
+
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <h2>Welcome Back</h2>
+
+        <form onsubmit="event.preventDefault(); login();">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function login() {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            if (email === "admin1234@gmail.com" && password === "12345") {
+                document.getElementById("message").style.color = "#00ff99";
+                document.getElementById("message").innerHTML = "Login Successful!";
+            } else {
+                document.getElementById("message").style.color = "#ff6b6b";
+                document.getElementById("message").innerHTML = "Invalid Email or Password!";
+            }
+        }
+    </script>
+
+</body>
+</html>
